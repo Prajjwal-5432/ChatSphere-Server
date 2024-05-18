@@ -1,4 +1,5 @@
 const express = require("express");
+const dotenv = require("dotenv");
 const http = require("http");
 const { Server } = require("socket.io");
 const Filter = require("bad-words");
@@ -15,6 +16,7 @@ const {
   removeUser,
 } = require("./utils/users");
 
+dotenv.config();
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
