@@ -21,7 +21,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: process.env.NODE_ENV === 'production' ? process.env.PROD_CLIENT_URL : ["http://localhost:3000"],
   },
 });
 
